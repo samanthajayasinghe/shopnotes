@@ -11,4 +11,8 @@ export class HomePage {
 
   }
 
+  saveNote(){
+    console.log('test');
+  }
+
 }
