@@ -11,4 +11,8 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
   }
 
+  saveNote(){
+    console.log('test');
+  }
+
 }
