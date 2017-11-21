@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -8,11 +7,22 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage {
 
+  item:any = {};
+
   constructor(public navCtrl: NavController) {
+    this.initItem();
   }
 
-  saveNote(){
-    console.log('test');
+  saveNote() {
+    console.log(this.item);
   }
 
+  initItem() {
+    this.item = {
+      name : '',
+      quantity : 1,
+      date : '',
+      note : ''
+    }
+  }
 }
