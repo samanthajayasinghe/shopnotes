@@ -7,22 +7,30 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  item:any = {};
+  inputs:any = {};
+  items = [];
 
   constructor(public navCtrl: NavController) {
     this.initItem();
   }
 
   saveNote() {
-    console.log(this.item);
+    console.log(this.items);
+  }
+
+  addItem() {
+    this.items.push({name:this.inputs.name, quantity: this.inputs.quantity});
+    this.inputs.name = '';
   }
 
   initItem() {
-    this.item = {
+    this.inputs = {
       name : '',
       quantity : 1,
       date : '',
       note : ''
     }
+
+    this.items = [];
   }
 }

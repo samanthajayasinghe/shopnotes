@@ -1,29 +1,52 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Shopping Notes</ion-title>
+    <ion-title>Shopping List</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-list>
-      <ion-item>
-        <ion-label fixed>Name</ion-label>
-        <ion-input type="text" [(ngModel)]="item.name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>Quantity</ion-label>
-        <ion-input type="number"  [(ngModel)]="item.quantity"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>Date</ion-label>
-        <ion-datetime displayFormat="MMM DD DDD" pickerFormat="MMM DD DDD YY" [(ngModel)]="item.date"></ion-datetime>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>Note</ion-label>
-        <ion-input type="text" [(ngModel)]="item.note" ></ion-input>
-      </ion-item>
-      <ion-item>
-        <button ion-button (click)="saveNote()">Add Item</button>
-      </ion-item>
-    </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-8 col-xl-4>
+        <ion-item>
+          <ion-label >Shopping Date</ion-label>
+          <ion-datetime displayFormat="MMM DD DDD" pickerFormat="MMM DD DDD YY" [(ngModel)]="inputs.date"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4 col-xl-2>
+        <ion-item>
+          <ion-label fixed>Name</ion-label>
+          <ion-input type="text" [(ngModel)]="inputs.name"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4 col-xl-2>
+        <ion-item>
+          <ion-label fixed>Quantity</ion-label>
+          <ion-input type="number"  [(ngModel)]="inputs.quantity"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4 col-xl-2>
+          <button ion-button (click)="addItem()" color="light">Add Item</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-8 col-xl-4>
+        <ion-list>
+          <ion-item *ngFor="let i of items">
+            <h2>{{i.quantity}} x {{i.name}}</h2>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4 col-xl-2>
+        <button ion-button >Save Shopping List</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
